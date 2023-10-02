@@ -174,19 +174,32 @@
             let add_f = document.createElement("li");
             let average = 0;
             let average_f = 0;
+            let error_count = 0;
             for(let i=0;i<result_array.length;i++)
             {
-              average += Number(result_array[i]);
-              average_f += Number(result_f_array[i]);
+              if(result_array[i] == 9.999)
+              {
+                error_count += 1;
+              }else{
+                  average += Number(result_array[i]);
+                  average_f += Number(result_f_array[i]);
+                }
               document.getElementById("result").appendChild(add);
               add.textContent = result_array[i];
               document.getElementById("result_f").appendChild(add_f);
               add_f.textContent = result_f_array[i]+"f";
             }
-            average = (average / result_array.length).toFixed(3);
-            average_f = (average_f / result_array.length).toFixed(1);
-            document.getElementById("average").textContent = average;
-            document.getElementById("average_f").textContent = average_f+"f";
+            average = (average / (result_array.length - error_count)).toFixed(3);
+            average_f = (average_f / (result_array.length - error_count)).toFixed(1);
+            console.log(average);
+            if(!isNaN(average))
+            {
+              document.getElementById("average").textContent = average;
+              document.getElementById("average_f").textContent = average_f+"f";
+            }else{
+              document.getElementById("average").textContent = 0.000.toFixed(3);
+              document.getElementById("average_f").textContent = 0.0.toFixed(1)+"f";
+            }
 
             document.getElementById("canvas").style.background = "#6495ED";
             document.body.style.backgroundColor = "#191970";
@@ -282,19 +295,32 @@
           let add_f = document.createElement("li");
           let average = 0;
           let average_f = 0;
-          for(let i=0;i<result_array.length;i++)
-          {
-            average += Number(result_array[i]);
-            average_f += Number(result_f_array[i]);
-            document.getElementById("result").appendChild(add);
-            add.textContent = result_array[i];
-            document.getElementById("result_f").appendChild(add_f);
-            add_f.textContent = result_f_array[i]+"f";
-          }
-          average = (average / result_array.length).toFixed(3);
-          average_f = (average_f / result_array.length).toFixed(1);
-          document.getElementById("average").textContent = average;
-          document.getElementById("average_f").textContent = average_f+"f";
+          let error_count = 0;
+            for(let i=0;i<result_array.length;i++)
+            {
+              if(result_array[i] == 9.999)
+              {
+                error_count += 1;
+              }else{
+                  average += Number(result_array[i]);
+                  average_f += Number(result_f_array[i]);
+                }
+              document.getElementById("result").appendChild(add);
+              add.textContent = result_array[i];
+              document.getElementById("result_f").appendChild(add_f);
+              add_f.textContent = result_f_array[i]+"f";
+            }
+            average = (average / (result_array.length - error_count)).toFixed(3);
+            average_f = (average_f / (result_array.length - error_count)).toFixed(1);
+            console.log(average);
+            if(!isNaN(average))
+            {
+              document.getElementById("average").textContent = average;
+              document.getElementById("average_f").textContent = average_f+"f";
+            }else{
+              document.getElementById("average").textContent = 0.000.toFixed(3);
+              document.getElementById("average_f").textContent = 0.0.toFixed(1)+"f";
+            }
           document.getElementById("canvas").style.background = "#6495ED";
           document.body.style.backgroundColor = "#191970";
           game_bool = false;
