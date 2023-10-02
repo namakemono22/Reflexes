@@ -263,7 +263,7 @@
         let now = new Date();
         timer_time = Math.floor(now.getTime() - startTime.getTime());
         document.getElementById("time").textContent = (timer_time/1000).toFixed(3); // 経過時刻を表示
-        if(timer_time > 3000)
+        if(timer_time > 1200)
         {
           document.getElementById('img').style.display = displayOriginal;
           document.getElementById("img").src = "180half_f.gif";
