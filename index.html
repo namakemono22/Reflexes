@@ -32,7 +32,7 @@
       width: 450px;
       height: 450px;
       border-radius: 50%;
-      background:#FFA07A;
+      background:#6495ED;
       margin:auto;
     }
     .img
@@ -128,7 +128,7 @@
           clearInterval(stay_timer);
           clearInterval(game_timer);
           document.body.style.backgroundColor = 'black';
-          document.getElementById("canvas").style.background = "#32CD32";
+          document.getElementById("canvas").style.background = "#52695D";
 
           stay_timer = setInterval(stay_tick, 10);  // タイマー開始
           document.getElementById("time").textContent = "0.000";
@@ -188,7 +188,7 @@
             document.getElementById("average").textContent = average;
             document.getElementById("average_f").textContent = average_f+"f";
 
-            document.getElementById("canvas").style.background = "#FFA07A";
+            document.getElementById("canvas").style.background = "#6495ED";
             document.body.style.backgroundColor = "#191970";
 
             game_bool = false;
@@ -209,7 +209,7 @@
         document.body.style.backgroundColor = "#191970";
         document.getElementById("result").textContent = result_array;
         document.getElementById("result_f").textContent = result_f_array;
-        document.getElementById("canvas").style.background = "#FFA07A";
+        document.getElementById("canvas").style.background = "#6495ED";
         document.getElementById("time").textContent = "0.000";
         if(first)
         {
@@ -295,6 +295,7 @@
           average_f = (average_f / result_array.length).toFixed(1);
           document.getElementById("average").textContent = average;
           document.getElementById("average_f").textContent = average_f+"f";
+          document.getElementById("canvas").style.background = "#6495ED";
           document.body.style.backgroundColor = "#191970";
           game_bool = false;
           red_bool = false;
